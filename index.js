@@ -1,3 +1,5 @@
+var path = '../../svg/';
+
 const fs = require('fs');
 const handlebars = require('handlebars');
 const ltx = require('ltx');
@@ -7,7 +9,9 @@ const nameToModule = {};
 const cache = {};
 
 module.exports = function(name, opts) {
-
+  
+  name = path + name;
+  
   const mod = nameToModule[name] || (nameToModule[name] = resolve.sync(name, {
     extensions: ['.svg']
   }));
